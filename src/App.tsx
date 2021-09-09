@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { comments } from './data/comments';
 
 function App() {
+
   return (
     <div className="p-2">
       {/* post container */}
@@ -13,8 +15,8 @@ function App() {
 
           {/* image and name */}
           <div className="flex space-x-2 items-center">
-            <img className="w-12 h-12 rounded-full" src="/profileImages/handsome.jpg"></img>
-            <span className='font-semibold text-lg'>Chayanin Suatap 610631100</span>
+            <img className="w-12 h-12 rounded-full" src="/profileImages/pro.jpg"></img>
+            <span className='font-semibold text-lg'>Khanitin Saenkan 630610718</span>
           </div>
 
           {/* status message */}
@@ -29,33 +31,39 @@ function App() {
         </div>
 
         {/* comments section */}
-        <div className="">
+        {comments.map(x => <div className="" key={x.username}>
 
           {/* normal comment */}
           <div className="flex p-2 items-start space-x-2">
-            <img className="w-10 w-10 rounded-full" src="/profileImages/lisa.jpg"></img>
+            <img className="w-10 w-10 rounded-full" src={x.userImagePath}></img>
             <div className="bg-gray-200 rounded-lg p-2">
-              <p className="font-semibold">Lisa</p>
-              <p>ตัวอย่าง Template จ้า</p>
+              <p className="font-semibold">{x.username}</p>
+              <p>{x.commentText}</p>
               {/* like section (จะไม่แสดงถ้าไม่มีใครไลค์เลย) */}
-              <div className='flex items-center'>
-                <img className='w-4 h-4 mr-1' src='/like.svg'></img>
-                <p className='text-gray-500'>999 คน</p>
-              </div>
+              {x.likeNum > 0 ?
+                <div className='flex items-center'>
+                  <img className='w-4 h-4 mr-1' src='/like.svg'></img>
+                  <p className='text-gray-500'>{x.likeNum} คน</p>
+                </div> : null}
             </div>
           </div>
 
           {/* replies */}
           {/* ต่างกันตรงที่มี padding มากกว่าเท่านั้น (pl-14) */}
-          <div className="flex p-2 items-start space-x-2 pl-14">
-            <img className="w-10 w-10 rounded-full" src="/profileImages/puppy.jpg"></img>
+          {x.replies.map(y => <div className="flex p-2 items-start space-x-2 pl-14">
+            <img className="w-10 w-10 rounded-full" src={y.userImagePath}></img>
             <div className="bg-gray-200 rounded-lg p-2">
-              <p className="font-semibold">หมาน้อย</p>
-              <p>เม้นค้าบ</p>
+              <p className="font-semibold">{y.username}</p>
+              <p>{y.commentText}</p>
+              {y.likeNum > 0 ?
+                <div className='flex items-center'>
+                  <img className='w-4 h-4 mr-1' src='/like.svg'></img>
+                  <p className='text-gray-500'>{y.likeNum} คน</p>
+                </div> : null}
             </div>
-          </div>
+          </div>)}
 
-        </div>
+        </div>)}
 
       </div>
     </div>
