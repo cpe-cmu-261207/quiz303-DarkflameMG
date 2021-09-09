@@ -4,4 +4,4 @@
 
 https://o365cmu-my.sharepoint.com/:b:/g/personal/chayanin_s_cmu_ac_th1/EbyuqawnOvxGvAzUYBSZY9cBdA0jgWoPuBMHl-565v0UDg?e=TgNTzQ
 
-เมื่อ Deploy app เรียบร้อยแล้ว ให้ใส่ URL ที่นี่ :
+เมื่อ Deploy app เรียบร้อยแล้ว ให้ใส่ URL ที่นี่ :https://quiz03-630610718.surge.sh
