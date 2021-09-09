@@ -25,7 +25,7 @@ function App() {
           {/* like section */}
           <div className='flex items-center'>
             <img className='w-4 h-4 mr-1' src='/like.svg'></img>
-            <p className='text-gray-500'>100 คน</p>
+            <p className='text-gray-500'>1M คน</p>
           </div>
 
         </div>
@@ -55,6 +55,7 @@ function App() {
             <div className="bg-gray-200 rounded-lg p-2">
               <p className="font-semibold">{y.username}</p>
               <p>{y.commentText}</p>
+              {/* like section (จะไม่แสดงถ้าไม่มีใครไลค์เลย) */}
               {y.likeNum > 0 ?
                 <div className='flex items-center'>
                   <img className='w-4 h-4 mr-1' src='/like.svg'></img>
